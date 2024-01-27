@@ -1,0 +1,13 @@
+div #color-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  width: 200px;
+  border: black 3px;
+  border-radius: 15%;
+}
+input {
+  background-color: aqua;
+}
