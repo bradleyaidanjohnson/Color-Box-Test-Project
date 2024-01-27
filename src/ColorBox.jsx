@@ -1,16 +1,20 @@
-function ColorBox({ color }) {
+function ColorBox({ color, hexValue, isDarkText }) {
   return (
     <div
       id="color-box"
       style={{
-        height: 200,
-        width: 200,
-        backgroundColor: `${color}`,
+        backgroundColor: color,
+        color: isDarkText ? "#000" : "#FFF",
       }}
     >
-      {color ? color : "Empty Value"}
+      <p>{color ? color : "Empty Value"}</p>
+      <p>{hexValue ? hexValue : null}</p>
     </div>
   );
 }
+
+ColorBox.defaultProps = {
+  color: "Empty Color Value",
+};
 
 export default ColorBox;

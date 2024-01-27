@@ -1,12 +1,30 @@
-const InputField = ({ color, updateColor }) => {
+import colorNames from "colornames";
+
+const InputField = ({
+  color,
+  setColor,
+  setHexValue,
+  isDarkText,
+  setIsDarkText,
+}) => {
   return (
-    <div>
+    <form onSubmit={(e) => e.preventDefault()}>
+      <label id="color-label">Add Color Name:</label>
       <input
-        placeholder="Add color"
+        placeholder="Add color name"
+        type="text"
         value={color}
-        onChange={(e) => updateColor(e.target.value)}
+        required
+        onChange={(e) => {
+          setColor(e.target.value);
+          setHexValue(colorNames(e.target.value));
+        }}
+        autoFocus
       />
-    </div>
+      <button type="button" onClick={() => setIsDarkText(!isDarkText)}>
+        Toggle Text Color
+      </button>
+    </form>
   );
 };
 
